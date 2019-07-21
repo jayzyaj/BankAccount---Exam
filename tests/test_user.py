@@ -1,5 +1,5 @@
 import unittest
-from constants import variables
+from user import User
 
 class TestUser(unittest.TestCase):
 
@@ -12,11 +12,8 @@ class TestUser(unittest.TestCase):
     print('Test Case finished for User Module')
 
   def setUp(self):
-    self.user_1 = variables.user_1
-    self.user_2 = variables.user_2
-
-    self.user_3 = variables.user_3
-    self.user_4 = variables.user_4
+    self.user_1 = User('Jayz', 'de Vera', 'deverajaycee17@gmail.com')
+    self.user_2 = User('Son', 'Chaeyoung', 'twice@gmail.com')
 
   def tearDown(self):
     print('tearDown\n')
@@ -36,17 +33,16 @@ class TestUser(unittest.TestCase):
     self.user_2.firstName = 'Mi'
     self.user_2.lastName = 'Chaeng'
 
-    # self.assertEqual(self.user_1.fullname, 'John Clifford de Vera')
-    # self.assertEqual(self.user_2.fullname, 'Mi Chaeng')
+    self.assertEqual(self.user_1.fullname, 'John Clifford de Vera')
+    self.assertEqual(self.user_2.fullname, 'Mi Chaeng')
 
   def test_user_open_account(self):
     print('Testing User should return bank account details correctly')
-    # self.user_1.open_account("Wells Fargo", 10171996, 5000)
     self.user_1.open_account("Wells Fargo", 10171996, 5000)
     user_1_bank = self.user_1.bankAccount
     # Assertion test for Bank Object
     self.assertEqual(user_1_bank.name, "Wells Fargo")
-    self.assertEqual(user_1_bank.accountName, "John Clifford de Vera")
+    self.assertEqual(user_1_bank.accountName, "Jayz de Vera")
     self.assertEqual(user_1_bank.accountNumber, 10171996)
     self.assertEqual(user_1_bank.pin, 123456)
     self.assertEqual(user_1_bank.balance, 5000)
@@ -54,6 +50,7 @@ class TestUser(unittest.TestCase):
 
   def test_user_open_another_account(self):
     print('Testing User should not open a new account if it has one')
+    self.user_1.open_account("Wells Fargo", 10171996, 5000)
     with self.assertRaises(ValueError):
       self.user_1.open_account("Bank of America", 10172019, 3000)
 

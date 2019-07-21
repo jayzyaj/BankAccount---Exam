@@ -1,10 +1,8 @@
 import unittest
 import calc
 
-from constants import variables
+from user import User
 from bank_account import BankAccount
-
-calc = calc.Math
 
 class TestBank(unittest.TestCase):
     @classmethod
@@ -16,11 +14,15 @@ class TestBank(unittest.TestCase):
       print('Test Case finished for Bank Module')
 
     def setUp(self):
-      self.user_1 = variables.user_1
-      self.user_2 = variables.user_2
+      self.user_1 = User('Jayz', 'de Vera', 'deverajaycee17@gmail.com')
+      self.user_2 = User('Son', 'Chaeyoung', 'twice@gmail.com')
 
     def tearDown(self):
       print('tearDown\n')
+
+    def test_withdraw(self):
+      user_1_bank = self.user_1.bankAccount
+      self.assertIsNone(user_1_bank)
 
     # def test_add(self):
     #     self.assertEqual(calc.add(10, 5), 15)
