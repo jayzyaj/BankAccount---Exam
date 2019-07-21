@@ -16,13 +16,15 @@ class BankAccount:
       raise ValueError('You cannot withdraw an amount of below 0')
     if amount > self.balance and (self.balance - amount) < self.preArrangeOverdraft:
       raise ValueError('You cannot withdraw an amount greater than the pre arranged overdraft limit')
-    self.balance -= round(amount, 2)
+    newBalance = float("{0:.2f}".format(self.balance - amount))
+    self.balance = newBalance
     return amount
 
   def deposit(self, amount):
     if amount < 0:
       raise ValueError('You cannot deposit an amount of below 0')
-    self.balance += round(amount, 2)
+    newBalance = float("{0:.2f}".format(self.balance + amount))
+    self.balance = newBalance
     return amount
     
   def applyAgreedOverdraft(self, preArrangeLimit):

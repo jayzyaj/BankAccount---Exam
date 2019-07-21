@@ -26,7 +26,8 @@ class TestBankDeposit(unittest.TestCase):
 
       self.assertEqual(user_1_bank.deposit(2550.68), 2550.68)
       self.assertEqual(user_1_bank.deposit(492.05), 492.05)
-      self.assertEqual(user_1_bank.displayBalance, 'Your current balance is: 3142.73')
+      self.assertEqual(user_1_bank.deposit(678.6392), 678.6392)
+      self.assertEqual(user_1_bank.displayBalance, 'Your current balance is: 3821.37')
 
 
 if __name__ == '__main__':
