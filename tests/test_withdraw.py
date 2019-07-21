@@ -53,6 +53,7 @@ class TestBankWithdrawal(unittest.TestCase):
       user_1_bank = self.user_1.bankAccount
 
       user_1_bank.applyAgreedOverdraft(-10000.00)
+      self.assertEqual(user_1_bank.preArrangeOverdraft, -10000.00)
       user_1_bank.withdraw(4000.00)
       user_1_bank.withdraw(3000.12)
       self.assertEqual(user_1_bank.displayBalance, 'Your current balance is: -2000.12')
