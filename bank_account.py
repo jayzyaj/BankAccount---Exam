@@ -14,6 +14,9 @@ class BankAccount:
       raise ValueError('You cannot withdraw an amount greater than balance if you have no agreed overdraft')
     self.balance -= amount
     return amount
-    # if (amount > self.balance and self.agreedOverdraft is False):
-    #   raise ValueError('You cannot withdraw greater than balance. If you do not have an agreed overdraft')
     
+  def applyAgreedOverdraft(self):
+    if (self.agreedOverdraft == True):
+      raise('You already applied for an agreed overdraft')
+    self.agreedOverdraft = True
+    return self

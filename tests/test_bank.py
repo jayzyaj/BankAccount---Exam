@@ -48,6 +48,16 @@ class TestBank(unittest.TestCase):
       with self.assertRaises(ValueError):
         user_1_bank.withdraw(8000)
 
+    def test_withdraw_more_than_current_balance_with_agreed_overdraft(self):
+      print('Testing Bank Module withdraw amount more than balance that has no agreed overdraft')
+      self.user_1.open_account("Wells Fargo", 10171996, 5000)
+      user_1_bank = self.user_1.bankAccount
+
+      user_1_bank.applyAgreedOverdraft()
+      user_1_bank.withdraw(4000) # 5000 - 4000 = 1000
+      user_1_bank.withdraw(3000) # 1000 - 3000 = -2000
+      self.assertEqual(user_1_bank.balance, -2000)
+
     # def test_add(self):
     #     self.assertEqual(calc.add(10, 5), 15)
 
