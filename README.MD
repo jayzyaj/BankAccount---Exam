@@ -13,7 +13,7 @@ The Bank Account Using Object-Oriented Principles, simulate a basic current acco
 
 ### Getting Started
 
-1.) The ***requirements.txt*** is not really necessary so you don't have to `pip install` or create a virtual environment.
+1.) The **requirements.txt** is not really necessary so you don't have to `pip install` or create a virtual environment.
 
 2.) Navigate to the project directory:
 
