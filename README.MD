@@ -31,8 +31,6 @@ The Bank Account Using Object-Oriented Principles, simulate a basic current acco
 
 `python -m unittest ${filename.py}`
 
-`$ yarn start`
-
 > Note:
 > You're able to tweak some tests (for example, changing the inputs to analyse the outcome of said changes) without touching the implementation code.
 
