@@ -6,11 +6,11 @@ from bank_account import BankAccount
 class TestBankDeposit(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-      print('Test Cases starting for Bank Module')
+      print('Test Cases starting for Bank Module deposit funds')
 
     @classmethod
     def tearDownClass(cls):
-      print('Test Case finished for Bank Module')
+      print('Test Case finished for Bank Module deposit funds')
 
     def setUp(self):
       self.user_1 = User('Jayz', 'de Vera', 'deverajaycee17@gmail.com')
