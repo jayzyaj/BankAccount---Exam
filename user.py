@@ -12,6 +12,9 @@ class User:
       return '{} {}'.format(self.firstName, self.lastName)
 
   def open_account(self, bankName, accountNumber, initialDeposit):
+    if self.bankAccount != None:
+      raise ValueError('User has an existing bank account!')
+
     self.bankAccount = BankAccount(
       bankName,
       '{} {}'.format(self.firstName, self.lastName),
