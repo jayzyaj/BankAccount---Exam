@@ -18,16 +18,10 @@ class TestUser(unittest.TestCase):
   def tearDown(self):
     print('tearDown\n')
       
-  # def test_email(self):
-  #   print('test_email')
-  #   self.assertEqual(self.emp_1.email, 'Corey.Schafer@email.com')
-  #   self.assertEqual(self.emp_2.email, 'Sue.Smith@email.com')
-
-  #   self.emp_1.first = 'John'
-  #   self.emp_2.first = 'Jane'
-
-  #   self.assertEqual(self.emp_1.email, 'John.Schafer@email.com')
-  #   self.assertEqual(self.emp_2.email, 'Jane.Smith@email.com')
+  def test_email(self):
+    print('Testing User should return email correctly')
+    self.assertEqual(self.user_1.email, 'deverajaycee17@gmail.com')
+    self.assertEqual(self.user_2.email, 'twice@gmail.com')
 
   def test_fullname(self):
     print('Testing User should return full name correctly')

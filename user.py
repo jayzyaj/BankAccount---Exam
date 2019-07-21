@@ -8,3 +8,7 @@ class User:
   @property
   def fullname(self):
       return '{} {}'.format(self.firstName, self.lastName)
+
+  # @property
+  # def email(self):
+  #   return '{}.{}@email.com'.format(self.first, self.last)
