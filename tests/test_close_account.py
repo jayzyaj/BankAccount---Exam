@@ -20,8 +20,8 @@ class TestBankWithdrawal(unittest.TestCase):
     def tearDown(self):
       print('tearDown\n')
 
-    def test_withdraw_correct_amount(self):
-      print('Testing Bank Module withdraw should return correct amount')
+    def test_close_account_no_overdraft_fees(self):
+      print('Testing Bank Module close account that has no overdraft fees')
       self.user_1.open_account("Wells Fargo", 10171996, 5000)
       user_1_bank = self.user_1.bankAccount
 
@@ -30,26 +30,12 @@ class TestBankWithdrawal(unittest.TestCase):
       with self.assertRaises(ValueError):
         user_1_bank.withdraw(-2323)
       self.assertEqual(user_1_bank.balance, 1000)
+      
+      self.user_1.close_account()
+      self.assertIsNone(self.user_1.bankAccount)
 
-    def test_withdraw_correct_remaining_balance(self):
-      print('Testing Bank Module withdraw should return correct remaining balance')
-      self.user_1.open_account("Wells Fargo", 10171996, 5000)
-      user_1_bank = self.user_1.bankAccount
-
-      user_1_bank.withdraw(3000.00) # 5000 - 3000 = 2000
-      user_1_bank.withdraw(959.63) # 2000 - 959.63 = 1000
-      self.assertEqual(user_1_bank.balance, 1040.37)
-
-    def test_withdraw_more_than_current_balance_with_no_agreed_overdraft(self):
-      print('Testing Bank Module withdraw amount more than balance that has no agreed overdraft')
-      self.user_1.open_account("Wells Fargo", 10171996, 5000)
-      user_1_bank = self.user_1.bankAccount
-
-      with self.assertRaises(ValueError):
-        user_1_bank.withdraw(8000)
-
-    def test_withdraw_more_than_current_balance_with_agreed_overdraft(self):
-      print('Testing Bank Module withdraw amount more than balance that has no agreed overdraft')
+    def test_close_account_with_overdraft_fees(self):
+      print('Testing Bank Module close account with overdraft fees')
       self.user_1.open_account("Wells Fargo", 10171996, 5000.00)
       user_1_bank = self.user_1.bankAccount
 
@@ -57,6 +43,9 @@ class TestBankWithdrawal(unittest.TestCase):
       user_1_bank.withdraw(4000.00) # 5000 - 4000 = 1000
       user_1_bank.withdraw(3000.12) # 1000 - 3000 = -2000
       self.assertEqual(user_1_bank.displayBalance, 'Your current balance is: -2000.12')
+      
+      with self.assertRaises(ValueError):
+        self.user_1.close_account()
 
 if __name__ == '__main__':
     unittest.main()
