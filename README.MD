@@ -11,8 +11,6 @@ The Bank Account Using Object-Oriented Principles, simulate a basic current acco
 * Withdraw Funds
 * Apply agreed overdraft (Where an account is allowed to go into a pre-arranged negative balance) 
 
-> NOTE: We prefer to use yarn over npm for a number of reasons. But mainly because it is much faster and much less issues.
-
 ### Getting Started
 
 1.) The *requirements.txt* is not really necessary so you don't have to `pip install` or create a virtual environment.
