@@ -4,7 +4,7 @@ class BankAccount:
     self.accountName = accountName
     self.accountNumber = accountNumber
     self.pin = 123456
-    self.balance = initialDeposit
+    self.balance = round(initialDeposit, 2)
     self.agreedOverdraft = False
 
   def withdraw(self, amount):
