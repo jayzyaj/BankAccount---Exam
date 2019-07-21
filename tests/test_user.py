@@ -1,5 +1,5 @@
 import unittest
-from user import User
+from constants import variables
 
 class TestUser(unittest.TestCase):
 
@@ -12,8 +12,8 @@ class TestUser(unittest.TestCase):
     print('Test Case finished for User Module')
 
   def setUp(self):
-    self.user_1 = User('Jayz', 'de Vera', 'deverajaycee17@gmail.com')
-    self.user_2 = User('Son', 'Chaeyoung', 'twice@gmail.com')
+    self.user_1 = variables.user_1
+    self.user_2 = variables.user_2
 
   def tearDown(self):
     print('tearDown\n')
@@ -33,6 +33,16 @@ class TestUser(unittest.TestCase):
 
     self.assertEqual(self.user_1.fullname, 'John Clifford de Vera')
     self.assertEqual(self.user_2.fullname, 'Mina Chaeyoung')
+
+  def test_user_open_account(self):
+    self.user_1.open_account("Wells Fargo", 10171996, 5000)
+    user_1_bank = self.user_1.bankAccount
+    self.assertEqual(user_1_bank.name, "Wells Fargo")
+    self.assertEqual(user_1_bank.accountName, "John Clifford de Vera")
+    self.assertEqual(user_1_bank.accountNumber, 10171996)
+    self.assertEqual(user_1_bank.pin, 123456)
+    self.assertEqual(user_1_bank.balance, 5000)
+    self.assertEqual(user_1_bank.agreedOverdraft, False)
 
 if __name__ == '__main__':
     unittest.main()

@@ -3,5 +3,6 @@ class BankAccount:
     self.name = name
     self.accountName = accountName
     self.accountNumber = accountNumber
+    self.pin = 123456
     self.balance = initialDeposit
-    self.overdraft = False
+    self.agreedOverdraft = False
