@@ -4,7 +4,7 @@ import calc
 from user import User
 from bank_account import BankAccount
 
-class TestBank(unittest.TestCase):
+class TestBankWithdrawal(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
       print('Test Cases starting for Bank Module')
