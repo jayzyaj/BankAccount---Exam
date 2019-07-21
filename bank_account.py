@@ -7,6 +7,10 @@ class BankAccount:
     self.balance = round(initialDeposit, 2)
     self.agreedOverdraft = False
 
+  @property
+  def displayBalance(self):
+    return 'Your current balance is: {}'.format(round(self.balance, 2))
+
   def withdraw(self, amount):
     if amount < 0:
       raise ValueError('You cannot withdraw an amount of below 0')
