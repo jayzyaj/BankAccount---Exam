@@ -26,10 +26,6 @@ class TestBankDeposit(unittest.TestCase):
 
       self.assertEqual(user_1_bank.deposit(2550.68), 2550.68)
       self.assertEqual(user_1_bank.deposit(492.05), 492.05)
-      with self.assertRaises(ValueError):
-        user_1_bank.withdraw(-2323)
-      with self.assertRaises(ValueError):
-        user_1_bank.withdraw(-0.23)
       self.assertEqual(user_1_bank.displayBalance, 'Your current balance is: 3142.73')
 
 

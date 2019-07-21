@@ -46,7 +46,6 @@ class TestUser(unittest.TestCase):
     self.assertEqual(user_1_bank.accountNumber, 10171996)
     self.assertEqual(user_1_bank.pin, 123456)
     self.assertEqual(user_1_bank.balance, 5000)
-    self.assertEqual(user_1_bank.agreedOverdraft, False)
 
   def test_user_open_another_account(self):
     print('Testing User should not open a new account if it has one')

@@ -38,7 +38,7 @@ class TestBankWithdrawal(unittest.TestCase):
       self.user_1.open_account("Wells Fargo", 10171996, 5000.00)
       user_1_bank = self.user_1.bankAccount
 
-      user_1_bank.applyAgreedOverdraft()
+      user_1_bank.applyAgreedOverdraft(-10000)
       user_1_bank.withdraw(4000.00) # 5000 - 4000 = 1000
       user_1_bank.withdraw(3000.12) # 1000 - 3000 = -2000
       self.assertEqual(user_1_bank.displayBalance, 'Your current balance is: -2000.12')
