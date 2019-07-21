@@ -20,9 +20,33 @@ class TestBank(unittest.TestCase):
     def tearDown(self):
       print('tearDown\n')
 
-    def test_withdraw(self):
+    def test_withdraw_correct_amount(self):
+      print('Testing Bank Module withdraw should return correct amount')
+      self.user_1.open_account("Wells Fargo", 10171996, 5000)
       user_1_bank = self.user_1.bankAccount
-      self.assertIsNone(user_1_bank)
+
+      self.assertEqual(user_1_bank.withdraw(3000), 3000)
+      self.assertEqual(user_1_bank.withdraw(1000), 1000)
+      with self.assertRaises(ValueError):
+        user_1_bank.withdraw(-2323)
+      self.assertEqual(user_1_bank.balance, 1000)
+
+    def test_withdraw_correct_remaining_balance(self):
+      print('Testing Bank Module withdraw should return correct remaining balance')
+      self.user_1.open_account("Wells Fargo", 10171996, 5000)
+      user_1_bank = self.user_1.bankAccount
+
+      user_1_bank.withdraw(3000) # 5000 - 3000 = 2000
+      user_1_bank.withdraw(1000) # 2000 - 1000 = 1000
+      self.assertEqual(user_1_bank.balance, 1000)
+
+    def test_withdraw_more_than_current_balance_with_no_agreed_overdraft(self):
+      print('Testing Bank Module withdraw amount more than balance that has no agreed overdraft')
+      self.user_1.open_account("Wells Fargo", 10171996, 5000)
+      user_1_bank = self.user_1.bankAccount
+      user_1_bank.withdraw(8000)
+      with self.assertRaises(ValueError):
+        user_1_bank.withdraw(8000)
 
     # def test_add(self):
     #     self.assertEqual(calc.add(10, 5), 15)
