@@ -1,8 +1,6 @@
 import unittest
 
-from helpers import formatter
-
-formatMoney = formatter.formatMoney
+from helpers.formatter import formatMoney
 
 class TestHelperFormatter(unittest.TestCase):
     @classmethod

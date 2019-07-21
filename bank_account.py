@@ -1,6 +1,4 @@
-from helpers import formatter
-
-formatMoney = formatter.formatMoney
+from helpers.formatter import formatMoney
 
 class BankAccount:
   def __init__(self, name, accountName, accountNumber, initialDeposit = formatMoney(0)):
