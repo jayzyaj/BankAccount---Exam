@@ -19,7 +19,7 @@ The Bank Account Using Object-Oriented Principles, simulate a basic current acco
 
 2.) Navigate to the project directory:
 
-`cd BankAccount---Exam` or `cd 
+`cd BankAccount---Exam`
 
 ### Running the Project
 
