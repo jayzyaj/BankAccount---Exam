@@ -44,7 +44,7 @@ class TestBank(unittest.TestCase):
       print('Testing Bank Module withdraw amount more than balance that has no agreed overdraft')
       self.user_1.open_account("Wells Fargo", 10171996, 5000)
       user_1_bank = self.user_1.bankAccount
-      user_1_bank.withdraw(8000)
+
       with self.assertRaises(ValueError):
         user_1_bank.withdraw(8000)
 
